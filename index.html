@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
   <title>Test Learning Site</title>
   <style>
+    /* Set up full-screen background with centered star GIF */
     body {
       background-image: url(stars3.gif);
       background-size: cover;
@@ -17,9 +18,10 @@
       color: white;
       text-align: center;
       padding-top: 100px;
-      text-shadow: none !important; /* Disable text shadow */
+      text-shadow: none !important; /* Disable any text shadows */
     }
 
+    /* Fixed transparent navigation bar at the top */
     nav {
       background: none !important;
       box-shadow: none !important;
@@ -28,9 +30,10 @@
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 1000;
+      z-index: 1000; /* Keep nav above other content */
     }
 
+    /* Nav links styled as white text with spacing and no decoration */
     nav a {
       color: white;
       text-decoration: none;
@@ -42,17 +45,22 @@
       border: none !important;
       outline: none !important;
       box-shadow: none !important;
+      cursor: pointer; /* Make it clear they are clickable */
+      display: inline-block;
     }
 
+    /* Hover effect: underline text, keep transparent background */
     nav a:hover {
       text-decoration: underline;
       background-color: transparent !important;
     }
 
+    /* Remove focus outline for nav links */
     nav a:focus {
       outline: none !important;
     }
 
+    /* Container for the gif-swap link (icon + label) */
     .gif-swap {
       display: inline-block;
       text-align: center;
@@ -62,20 +70,26 @@
       background-color: transparent !important;
       border: none !important;
       box-shadow: none !important;
+      cursor: pointer;
     }
 
+    /* Label above the icon image */
     .gif-swap .label {
       display: block;
       font-size: 14px;
       margin-bottom: 4px;
+      user-select: none; /* Prevent text selection on hover */
     }
 
+    /* Icon image style with smooth transition for swapping */
     .gif-swap img {
       width: 48px;
       height: auto;
       transition: 0.2s ease;
       border: none !important;
       box-shadow: none !important;
+      pointer-events: none; /* Ignore pointer events on image to allow parent link */
+      user-select: none;
     }
   </style>
 </head>
@@ -84,7 +98,7 @@
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="gallery.html">Gallery</a>
-    <a href="about-me.html" class="gif-swap">
+    <a href="about-me.html" class="gif-swap" aria-label="About Me">
       <span class="label">About Me</span>
       <img 
         src="Question Mark Still.png" 
@@ -98,17 +112,20 @@
   <p>This is just for fun and learning web development.</p>
 
   <script>
+    // For every element with class 'gif-swap', swap the image source on hover
     document.querySelectorAll('.gif-swap').forEach(button => {
       const img = button.querySelector('img');
-      const animated = img.dataset.animated;
-      const still = img.dataset.still;
+      const animatedSrc = img.dataset.animated; // Animated GIF source
+      const stillSrc = img.dataset.still;       // Static image source
 
+      // On mouse enter, swap to animated GIF
       button.addEventListener('mouseenter', () => {
-        img.src = animated;
+        img.src = animatedSrc;
       });
 
+      // On mouse leave, swap back to static image
       button.addEventListener('mouseleave', () => {
-        img.src = still;
+        img.src = stillSrc;
       });
     });
   </script>
