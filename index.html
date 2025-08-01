@@ -19,10 +19,6 @@
       text-align: center;
       padding-top: 100px;
     }
-    
-nav a {
-  background-color: transparent;
-}
 
     nav {
       background-color: rgba(0, 0, 0, 0.6);
@@ -41,12 +37,25 @@ nav a {
       padding: 10px 20px;
       border-radius: 8px;
       transition: background-color 0.3s ease;
+      display: inline-block;
+      background: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      outline: none !important;
     }
 
-nav a:hover {
-  text-decoration: underline; /* Example alternative */
-  background-color: transparent;
-}
+    nav a:hover {
+      text-decoration: underline;
+      background-color: transparent;
+    }
+
+    nav a:focus,
+    nav a:active {
+      outline: none !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
 
     .gif-swap {
       display: inline-block;
