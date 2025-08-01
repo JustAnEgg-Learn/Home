@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
   <title>Test Learning Site</title>
   <style>
-    /* ✅ Reset box sizing globally */
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -31,9 +30,9 @@
       position: fixed;
       top: 0;
       width: 100%;
+      z-index: 999;
     }
 
-    /* ✅ Nukes all default anchor styles and applies only what we want */
     nav a {
       all: unset;
       display: inline-block;
@@ -45,8 +44,8 @@
       margin: 0 15px;
       padding: 10px 20px;
       border-radius: 8px;
-      transition: background-color 0.3s ease, text-decoration 0.3s ease;
-      text-align: center;
+      transition: background-color 0.3s ease;
+      vertical-align: middle;
     }
 
     nav a:hover {
@@ -57,11 +56,11 @@
     nav a:active {
       outline: none;
       box-shadow: none;
-      background: none;
     }
 
-    /* Custom GIF label + image combo style */
+    /* Fix for the image button issue */
     .gif-swap {
+      display: inline-block;
       text-align: center;
     }
 
@@ -72,9 +71,14 @@
     }
 
     .gif-swap img {
+      display: block;
       width: 48px;
       height: auto;
-      transition: 0.2s ease;
+      margin: 0 auto;
+      border: none;
+      background: none;
+      box-shadow: none;
+      outline: none;
     }
   </style>
 </head>
@@ -98,7 +102,7 @@
   <p>This is just for fun and learning web development.</p>
 
   <script>
-    // GIF hover effect for "About Me"
+    // GIF hover effect
     document.querySelectorAll('.gif-swap').forEach(button => {
       const img = button.querySelector('img');
       const animated = img.dataset.animated;
